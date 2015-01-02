@@ -29,7 +29,7 @@ public class APNS
 		client.Connect(SandboxAddress, 2195);
 		sslStream = new SslStream(client.GetStream, false, new RemoteCertificateValidationCallback(validateServerCert), new LocalCertificateSelectionCallback(provideCertificate));
 
-		sslStream.AuthenticateAsClient(SandboxAddress, _Certificates, Security.Authentication.SslProtocols.Ssl3, false);
+		sslStream.AuthenticateAsClient(SandboxAddress, _Certificates, Security.Authentication.SslProtocols.Tls, false);
 
 		MemoryStream memoryStream = new MemoryStream();
 		BinaryWriter writer = new BinaryWriter(memoryStream);
